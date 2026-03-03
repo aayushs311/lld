@@ -9,6 +9,13 @@ public class Player {
     private PlayerType playerType;
     private boolean hasUsedUndo;
 
+    public Player(int id, String name, char symbol, PlayerType playerType) {
+        this.id = id;
+        this.name = name;
+        this.symbol = symbol;
+        this.playerType = playerType;
+    }
+
     public int getId() {
         return id;
     }
