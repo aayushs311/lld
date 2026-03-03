@@ -1,4 +1,4 @@
-### Requirement Gathering for TIC-TAC-TOE Game###
+### Requirement Gathering for TIC-TAC-TOE Game ###
 
 1. Size of the board can be N X N
 2. Number of players = N - 1
@@ -18,4 +18,14 @@
     will be played in the order of shuffled list.
 11. Game ends as soon as there is a winner, or the game becomes draw. After the same, we will start
     the game with a new empty board.
-12. We will show the replay of the game. 
+12. We will show the replay of the game.
+
+Controller:
+- First point of contact ->  APIs 
+- In Tic-Tac-Toe, we don't have APIs, hence we will keep, methods to play the game inside controller.
+
+Service:
+- Service: Logic for winner, draw, etc.
+
+Repository:
+- Since it's not persistent, we don't need to store anything , hence no repository needed.
