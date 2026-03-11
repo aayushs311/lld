@@ -7,4 +7,5 @@ import ticTacToe.model.Player;
 
 public interface WinnerCheckStrategy {
     Player checkWinner(Board board, Move move);
+    Board updateBoardDetails(Board board);
 }

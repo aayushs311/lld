@@ -12,7 +12,7 @@ public class PlayerService {
     private static int counter = 1;
     private final HashSet<Character> symbolSet;
 
-    public PlayerService(String name, char symbol) {
+    public PlayerService() {
         this.symbolSet = new HashSet<>();
     }
 

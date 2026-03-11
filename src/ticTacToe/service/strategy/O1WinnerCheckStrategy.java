@@ -6,6 +6,7 @@ import ticTacToe.model.Game;
 import ticTacToe.model.Move;
 import ticTacToe.model.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class O1WinnerCheckStrategy implements WinnerCheckStrategy{
         this.topLeftDiagonalMap = new HashMap<>();
         this.topRightDiagonalMap = new HashMap<>();
         this.cornerMap = new HashMap<>();
+        this.rowMaps = new ArrayList<>();
+        this.colMaps = new ArrayList<>();
         initializeMaps(size);
     }
 
@@ -46,7 +49,7 @@ public class O1WinnerCheckStrategy implements WinnerCheckStrategy{
         if(row + col == size - 1){
             topRightDiagonalMap.put(symbol, topRightDiagonalMap.getOrDefault(symbol, 0) + 1);
         }
-        if(topLeftDiagonalMap.get(symbol) == size || topRightDiagonalMap.get(symbol) == size) {
+        if(topLeftDiagonalMap.getOrDefault(symbol, 0) == size || topRightDiagonalMap.getOrDefault(symbol, 0) == size) {
             return currentMove.getPlayer();
         }
         // update corner maps
@@ -54,7 +57,7 @@ public class O1WinnerCheckStrategy implements WinnerCheckStrategy{
             cornerMap.put(symbol, cornerMap.getOrDefault(symbol, 0) + 1);
         }
 
-        if(cornerMap.get(symbol) == 4) {
+        if(cornerMap.getOrDefault(symbol, 0) == 4) {
             return currentMove.getPlayer();
         }
 
@@ -62,6 +65,12 @@ public class O1WinnerCheckStrategy implements WinnerCheckStrategy{
             throw new GameDrawnException("Game is drawn, nobody can win");
         }
 
+        return null;
+    }
+
+    @Override
+    public Board updateBoardDetails(Board board) {
+        // TOOD: Read the new board and update the hashmap accordingly
         return null;
     }
 
